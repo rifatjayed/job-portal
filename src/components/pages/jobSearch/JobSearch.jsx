@@ -3,7 +3,7 @@ import React from 'react'
 import Search from '../../shared/Search'
 import jobBg from "../../../assets/jobbg.png"
 
-import { RxCross2} from "react-icons/rx";
+import { RxCross2 } from "react-icons/rx";
 import JobItem from '../../shared/JobItem';
 
 
@@ -108,8 +108,8 @@ export default function JobSearch() {
                     </div>
 
                     <button className='text-base text-white bg-[#0A65CC] px-[32px] py-[8px] mb-[40px]'>
-                                           Apply Filter
-                                        </button>
+                        Apply Filter
+                    </button>
                 </div>
                 <div className='ps-[40px] pt-[80px] pr-[135px] w-full'>
                     <div className='flex justify-between items-center w-full'>
@@ -118,7 +118,18 @@ export default function JobSearch() {
                             <p className='text-base font-normal'>Filtered 9865 jobs</p>
                         </div>
                         <div>
-                            <h2>Sorted by: <span>Date</span></h2>
+                            <h2>Sorted by: <span>
+                                <select
+                                    className=""
+                                    defaultValue=""
+                                >
+
+                                    <option value="date">Date</option>
+                                    <option value="7Days">Last 7Days</option>
+
+                                </select>
+
+                            </span></h2>
                         </div>
 
 
