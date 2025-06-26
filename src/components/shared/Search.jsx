@@ -1,16 +1,14 @@
-import React from 'react'
-
+import React from "react";
 
 import SearchIcon from "../../assets/search.svg?react";
 import ArrowIcon from "../../assets/arrow.svg?react";
 import BookIcon from "../../assets/book.svg?react";
 import LocationIcon from "../../assets/location.svg?react";
 
-
 export default function Search() {
   return (
-   <div className="relative searchbar flex items-center gap-6 z-10  overflow w-[1032px] py-8 rounded-2xl">
-      <img
+    <div className="relative searchbar flex items-center gap-6 z-10  overflow w-[1032px] py-8 rounded-2xl">
+      {/* <img
         className="absolute top-0 left-[460px] -translate-y-full"
         src="/cornerUp.svg"
         alt=""
@@ -19,7 +17,7 @@ export default function Search() {
         className="absolute bottom-0 left-[460px] translate-y-full"
         src="/cornerDown.svg"
         alt=""
-      />
+      /> */}
       <div className="relative w-[270px]">
         <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
           <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm">
@@ -76,6 +74,5 @@ export default function Search() {
         </div>
       </div>
     </div>
-
-  )
+  );
 }
