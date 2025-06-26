@@ -2,7 +2,7 @@ import BulletIcon from "../../../assets/bullet.svg?react";
 function About() {
   return (
     <>
-      <div className="w-[1184px] flex justify-between gap-16 mt-10 items-stretch">
+      <div className="px-[135px] flex justify-between gap-16 mt-10 items-stretch">
         <div className="flex-1 flex flex-col justify-start gap-8">
           <div className="text-[40px] font-bold">Who we are</div>
           <div className="text-justify">

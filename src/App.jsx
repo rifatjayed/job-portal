@@ -4,6 +4,7 @@ import Home from "./components/pages/home/Home";
 import JobSearch from "./components/pages/jobSearch/JobSearch";
 import Navbar from "./components/shared/navbar/Navbar";
 import About from "./components/pages/about/About";
+import Footer from "./components/shared/footer/Footer";
 
 function App() {
   const router = createBrowserRouter([
@@ -12,7 +13,7 @@ function App() {
       element: (
         <>
           <Navbar></Navbar>
-          <Home></Home>,
+          <Home></Home>,<Footer></Footer>
         </>
       ),
     },
@@ -21,7 +22,7 @@ function App() {
       element: (
         <>
           <Navbar></Navbar>
-          <About></About>,
+          <About></About>,<Footer></Footer>
         </>
       ),
     },
@@ -30,7 +31,7 @@ function App() {
       element: (
         <>
           <Navbar></Navbar>
-          <JobSearch></JobSearch> ,
+          <JobSearch></JobSearch> ,<Footer></Footer>
         </>
       ),
     },
@@ -41,7 +42,7 @@ function App() {
       element: (
         <>
           <Navbar></Navbar>
-          <Description></Description>,
+          <Description></Description>,<Footer></Footer>
         </>
       ),
     },

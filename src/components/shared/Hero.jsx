@@ -1,15 +1,13 @@
-import React from 'react'
+import React from "react";
 import hero_img from "../../assets/hero-image.png";
-import Search from './Search';
-
-
-
+import Search from "./Search";
+import SearchTwo from "./SearchTwo";
 
 export default function Hero() {
   return (
-    <div className="w-[1170px] flex justify-between">
+    <div className=" max-w-[1170px]  flex justify-between">
       <div className="hero_left w-[435px] flex flex-col gap-4">
-        <div class="flex flex-col gap-10">
+        <div className="flex flex-col gap-10">
           <div className="title text-[44px] font-medium leading-[54px]">
             Jobs Made Simple Dreams Made Real
           </div>
@@ -18,7 +16,8 @@ export default function Hero() {
             through streamlined employment processes and opportunities.
           </div>
         </div>
-       <Search></Search>
+        {/* <Search></Search> */}
+        <SearchTwo></SearchTwo>
         <div className="hero_footer flex justify-between items-center">
           <div className="professoinals flex flex-col items-center">
             <div class="images pb-4 flex -space-x-3">
@@ -62,5 +61,5 @@ export default function Hero() {
         />
       </div>
     </div>
-  )
+  );
 }

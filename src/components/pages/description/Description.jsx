@@ -175,7 +175,7 @@ export default function () {
               </div>
             </div>
           </div>
-          <div className="">
+          <div className="w-[500px]">
             <div className="flex mb-[40px]">
               <div>
                 {" "}
