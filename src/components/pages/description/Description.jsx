@@ -1,41 +1,32 @@
 import React from "react";
-import descriptionBG from "../../../assets/details.png";
-import PC from "../../../assets/pc.png";
+// import descriptionBG from "../../../assets/details.png";
+// import PC from "../../../assets/pc.png";
 import { RxBookmark } from "react-icons/rx";
 import { FiShare2 } from "react-icons/fi";
 import { FaGraduationCap, FaBuromobelexperte } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
+import { TiBookmark } from "react-icons/ti";
 
 import { RiCalendar2Line, RiLayoutGrid2Line } from "react-icons/ri";
 
 import { CiLocationOn, CiTimer } from "react-icons/ci";
 import { IoPersonOutline } from "react-icons/io5";
 import JobItem from "../../shared/JobItem";
+import BannerProfile from "../../shared/banner/BannerProfile";
 
 export default function () {
   return (
-    <div>
-      <div
-        className=" bg-center w-full h-[458px]"
-        style={{ backgroundImage: `url(${descriptionBG})` }}
-      >
-        <div className="flex">
-          <h1 className="text-[56px] font-bold text-white">
-            Software <br />
-            Administrator
-          </h1>
-        </div>
-        <div className="w-[684px] h-[160px]">
-          {/* <img className='' src={PC} alt=""  /> */}
-        </div>
-      </div>
+   
+
+    <>
+      <BannerProfile />
 
       <div className="px-[135px] mt-[32px]">
         <div className="flex justify-between gap-[45px]  ">
-          <div>
+          <div className="flex-1">
             <div>
-              <h1 className="font-semibold text-2xl">Hemp Co. Ltd</h1>
-              <p className="flex items-center font-normal  text-base mb-[24px]">
+              <h1 className="font-semibold text-2xl mb-4">Hemp Co. Ltd</h1>
+              <p className="flex items-center gap-2 font-normal  text-base mb-[24px]">
                 <span>
                   <CiLocationOn />
                 </span>
@@ -44,7 +35,7 @@ export default function () {
             </div>
 
             <div className="flex gap-[18px] font-normal text-base">
-              <p className=" text-[#9199A3] bg-[#F1F2F4] rounded-3xl px-[10px] py-[6px]">
+              <p className=" text-[#9199A3] bg-gray-100 rounded-3xl px-[10px] py-[6px]">
                 Full-Time{" "}
               </p>
               <p className=" text-white bg-[#9199A3] rounded-3xl px-[10px] py-[6px]">
@@ -175,84 +166,92 @@ export default function () {
               </div>
             </div>
           </div>
-          <div className="w-[500px]">
-            <div className="flex mb-[40px]">
-              <div>
-                {" "}
-                <button className="text-base text-white bg-[#0A65CC] px-[48px] py-[12px] ">
+          <div className="w-[365px]">
+            <div className="flex gap-3 mb-[40px]">
+              <div className="ml-auto">
+                <button className="text-base text-white bg-blue-600 px-[48px] py-[12px] rounded">
                   Apply now
                 </button>
               </div>
-              <div className="text-[#0A65CC] text-2xl border border-[#0A65CC] px-[17px] py-[6px] mx-[12px]">
-                <RxBookmark />
+              <div className="w-14 h-12 flex items-center justify-center text-blue-600 border-2 border-blue-600 rounded">
+                <TiBookmark size={30} />
               </div>
-              <div className="text-[#0A65CC] text-2xl border border-[#0A65CC] px-[17px] py-[6px]">
-                <FiShare2 />
+              <div className="w-14 h-12 flex items-center justify-center text-blue-600 border-2 border-blue-600 rounded">
+                <FiShare2 size={30} />
               </div>
             </div>
             <div className="grid gap-[32px]">
-              <div className="p-[24px] border border-[#F1F2F4]">
+              <div className="p-[24px] border border-gray-100">
                 <div className="grid grid-cols-2 gap-[24px] ">
-                  <div className="">
-                    <RiCalendar2Line />
-
-                    <p className="text-base text-[#9199A3]">Job Posted</p>
-                    <p className="text-lg text-[#9199A3]"> March 02, 2024</p>
+                  <div className="flex flex-col gap-3 text-blue-600">
+                    <RiCalendar2Line size={36} />
+                    <div>
+                      <p className="text-base text-gray-400">Job Posted</p>
+                      <p className="text-lg text-gray-600"> March 02, 2024</p>
+                    </div>
                   </div>
-                  <div className="">
-                    <CiTimer />
-
-                    <p className="text-base text-[#9199A3]">Job Posted</p>
-                    <p className="text-lg text-[#9199A3]"> April 03, 2024</p>
+                  <div className="flex flex-col gap-3 text-blue-600">
+                    <CiTimer size={36} />
+                    <div>
+                      <p className="text-base text-gray-400">Job Posted</p>
+                      <p className="text-lg text-gray-600"> April 03, 2024</p>
+                    </div>
                   </div>
-                  <div className="">
-                    <RiLayoutGrid2Line />
-                    <p className="text-base text-[#9199A3]">Level</p>
-                    <p className="text-lg text-[#9199A3]">Mid level</p>
+                  <div className="flex flex-col gap-3  text-blue-600">
+                    <RiLayoutGrid2Line size={36} />
+                    <div>
+                      <p className="text-base text-gray-400">Level</p>
+                      <p className="text-lg text-gray-600">Mid level</p>
+                    </div>
                   </div>
-                  <div className="">
-                    <FaGraduationCap />
-
-                    <p className="text-base text-[#9199A3]">Education</p>
-                    <p className="text-lg text-[#9199A3]">Master's </p>
+                  <div className="flex flex-col gap-3  text-blue-600">
+                    <FaGraduationCap size={36} />
+                    <div>
+                      <p className="text-base text-gray-400">Education</p>
+                      <p className="text-lg text-gray-600">Master's </p>
+                    </div>
                   </div>
-                  <div className="">
-                    <FaBuromobelexperte />
-                    <p className="text-base text-[#9199A3]">Experience</p>
-                    <p className="text-lg text-[#9199A3]"> 2-3nYears</p>
+                  <div className="flex flex-col gap-3  text-blue-600">
+                    <FaBuromobelexperte size={36} />
+                    <div>
+                      <p className="text-base text-gray-400">Experience</p>
+                      <p className="text-lg text-gray-600"> 2-3nYears</p>
+                    </div>
                   </div>
-                  <div className="">
-                    <IoPersonOutline />
-                    <p className="text-base text-[#9199A3]">Vacancy </p>
-                    <p className="text-lg text-[#9199A3]"> 05</p>
+                  <div className="flex flex-col gap-3 text-blue-600">
+                    <IoPersonOutline size={36} />
+                    <div>
+                      <p className="text-base text-gray-400">Vacancy </p>
+                      <p className="text-lg text-gray-600"> 05</p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="p-[24px] border border-[#F1F2F4]">
-                <h4 className="mb-[24px]">Skills</h4>
+              <div className="p-[24px] border border-gray-100">
+                <h4 className="mb-[24px] text-gray-400">Skills</h4>
                 <div className="flex flex-wrap gap-3 mt-[20px] mb-[40px]">
-                  <p className="flex text-base bg-[#F1F2F4] p-1 justify-center items-center ">
+                  <p className="flex text-gray-600 bg-gray-100 px-2 py-1 rounded justify-center items-center ">
                     Web Development
-                    <span className="bg-white ml-[8px]">
-                      <RxCross2 />
+                    <span className="bg-white w-6 h-6 rounded flex justify-center items-center ml-2 text-gray-400">
+                      <RxCross2 size={20} />
                     </span>
                   </p>
-                  <p className="flex text-base bg-[#F1F2F4] p-1 justify-center items-center ">
+                  <p className="flex text-gray-600 bg-gray-100 px-2 py-1 rounded justify-center items-center ">
                     User Interface Design
-                    <span className="bg-white ml-[8px]">
-                      <RxCross2 />{" "}
+                    <span className="bg-white w-6 h-6 rounded flex justify-center items-center ml-2 text-gray-400">
+                      <RxCross2 size={20} />
                     </span>
                   </p>
-                  <p className="flex text-base bg-[#F1F2F4] p-1 justify-center items-center ">
+                  <p className="flex text-gray-600 bg-gray-100 px-2 py-1 rounded justify-center items-center ">
                     HTML
-                    <span className="bg-white ml-[8px]">
-                      <RxCross2 />{" "}
+                    <span className="bg-white w-6 h-6 rounded flex justify-center items-center ml-2 text-gray-400">
+                      <RxCross2 size={20} />
                     </span>
                   </p>
-                  <p className="flex text-base bg-[#F1F2F4] p-1 justify-center items-center ">
+                  <p className="flex text-gray-600 bg-gray-100 px-2 py-1 rounded justify-center items-center ">
                     HP Programming
-                    <span className="bg-white ml-[8px]">
-                      <RxCross2 />{" "}
+                    <span className="bg-white w-6 h-6 rounded flex justify-center items-center ml-2 text-gray-400">
+                      <RxCross2 size={20} />
                     </span>
                   </p>
                 </div>
@@ -273,6 +272,6 @@ export default function () {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

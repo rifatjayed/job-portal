@@ -1,11 +1,12 @@
 import React from "react";
 import hero_img from "../../assets/hero-image.png";
 import Search from "./Search";
-import SearchTwo from "./SearchTwo";
+// import Search from "./Search";
+// import SearchTwo from "./SearchTwo";
 
 export default function Hero() {
   return (
-    <div className=" max-w-[1170px]  flex justify-between">
+    <div className=" w-[1170px]  flex justify-between">
       <div className="hero_left w-[435px] flex flex-col gap-4">
         <div className="flex flex-col gap-10">
           <div className="title text-[44px] font-medium leading-[54px]">
@@ -17,7 +18,7 @@ export default function Hero() {
           </div>
         </div>
         {/* <Search></Search> */}
-        <SearchTwo></SearchTwo>
+        <Search bgColor="white" btnColor="blue" btnText="white"></Search>
         <div className="hero_footer flex justify-between items-center">
           <div className="professoinals flex flex-col items-center">
             <div class="images pb-4 flex -space-x-3">
