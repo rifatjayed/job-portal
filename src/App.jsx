@@ -6,6 +6,7 @@ import JobSearch from "./components/pages/jobSearch/JobSearch";
 import About from "./components/pages/about/About";
 import Layout from "./components/layout/Layout";
 import Contact from "./components/pages/contact/Contact";
+import Login from "./components/pages/login/Login";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>,
+      },
+
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },

@@ -23,55 +23,6 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
   return (
-    // <div className="px-[135px] py-[32px]">
-    //   <header className=" flex justify-between items-center">
-    //     <div className="header flex gap-2 font-bold text-lg">
-    //       <img src={logo} alt="" /> JobInto{" "}
-    //     </div>
-    //     <ul className="nav flex justify-center items-center gap-7">
-    //       <li className="nav-item border-b border-blue-600 text-blue-600">
-    //         <a href="/">Home</a>
-    //       </li>
-    //       <li className="nav-item">
-    //         <a href="/about">About Us</a>
-    //       </li>
-    //       <li className="nav-item">
-    //         <a href="/contact">Contact Us</a>
-    //       </li>
-    //     </ul>
-    //     <div
-    //       className={`auth flex justify-center items-center ${
-    //         signin ? " gap-3" : " gap-8"
-    //       }`}
-    //     >
-    //       {!signin ? (
-    //         <>
-    //           <div className="login text-blue-600 px-9 py-3 border rounded border-gray-500">
-    //             Login
-    //           </div>
-    //           <div className="register text-white px-9 py-3 rounded border-blue-700 bg-blue-700">
-    //             Register
-    //           </div>
-    //         </>
-    //       ) : (
-    //         <>
-    //           <div>
-    //             <img
-    //               className="w-12 h-12 rounded-full object-cover"
-    //               src="/avatar.png"
-    //               alt=""
-    //             />
-    //           </div>
-    //           <div className="flex flex-col justify-center items-start">
-    //             <div className="text-lg font-medium">MD RIfat Jayed</div>
-    //             <div className="text-gray-500">Software Engineer</div>
-    //           </div>
-    //         </>
-    //       )}
-    //     </div>
-    //   </header>
-    // </div>
-
     <div className="sticky top-0 w-full flex justify-center pb-4 bg-white rounded z-55">
       <header className="mt-8 w-[1170px] h-[48px] flex justify-between items-center">
         <div className="header flex gap-2 font-bold text-lg">

@@ -23,7 +23,7 @@ function Contact() {
         description="Email, call, or complete the form below to let us know
 your job requirements."
       />
-      <div className="w-[1170px] flex justify-around">
+      <div className="w-[1170px] mt-[80px] flex justify-around">
         <div className="w-full flex gap-8">
           <div className="flex-1 flex flex-col gap-10">
             <div>
