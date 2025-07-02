@@ -5,6 +5,7 @@ import Category from "../../shared/category/Category";
 import Specialized from "../../shared/specialized/Specialized";
 import Featured from "../../shared/featured/Featured";
 import Courses from "../../shared/course/Course";
+import Stats from "../../stats/Stats";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
 
       <Specialized></Specialized>
       <Featured></Featured>
+      <Stats></Stats>
       <Courses></Courses>
     </>
   );

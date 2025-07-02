@@ -1,6 +1,7 @@
 import React from "react";
 
-import jobIcon from "../../assets/Group.png";
+// import jobIcon from "../../assets/Group.png";
+import jobIcon from "/Group.png";
 import { RxBookmark } from "react-icons/rx";
 import { TiBookmark } from "react-icons/ti";
 
