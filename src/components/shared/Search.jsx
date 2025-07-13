@@ -82,7 +82,7 @@ import LocationIcon from "../../assets/location.svg?react";
 export default function Search({ bgColor, btnColor }) {
   return (
     <div
-      className={`relative searchbar flex flex-col lg:flex-row items-center gap-4 lg:gap-6 z-10 bg-${bgColor} overflow w-[1032px] py-8  rounded-2xl`}
+      className={`relative searchbar flex flex-col lg:flex-row items-center gap-4 lg:gap-6 z-10 bg-${bgColor} overflow w-[300px] lg:w-[1032px] py-8  rounded-2xl`}
     >
       <div className="relative w-full lg:w-[270px]">
         <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">

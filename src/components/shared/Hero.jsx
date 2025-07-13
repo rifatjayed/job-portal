@@ -161,9 +161,9 @@ export default function Hero() {
     <div className="w-full flex justify-center px-4 sm:px-6 lg:px-0">
       <div className="w-[1170px] flex flex-col-reverse lg:flex-row justify-between mt-16">
         {/* Left (Content) */}
-        <div className="hero_left w-[435px] flex flex-col gap-4">
+        <div className="hero_left w-[435px] flex flex-col gap-4 px-[70px] lg:px-0">
           <div className="flex flex-col gap-10">
-            <div className="title text-[44px] font-medium leading-[54px]">
+            <div className="title text-[35px] lg:text-[44px] font-medium leading-[54px]">
               Jobs Made Simple Dreams Made Real
             </div>
             <div className="description">
