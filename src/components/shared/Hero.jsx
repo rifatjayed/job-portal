@@ -159,7 +159,9 @@ import Search from "./Search";
 export default function Hero() {
   return (
     <div className="w-full flex justify-center px-4 sm:px-6 lg:px-0">
-      <div className="w-[1170px] flex flex-col-reverse lg:flex-row justify-between mt-16">
+      {/* <div className="w-[1170px] flex flex-col-reverse lg:flex-row justify-between mt-16"> */}
+
+      <div className="w-[1170px] flex flex-col-reverse md:flex-col lg:flex-row justify-between mt-16">
         {/* Left (Content) */}
         <div className="hero_left w-[435px] flex flex-col gap-4 px-[70px] lg:px-0">
           <div className="flex flex-col gap-10">
@@ -184,7 +186,7 @@ export default function Hero() {
               alt=""
             />
           </div>
-          <div className="hero_footer flex justify-between items-center">
+          {/* <div className="hero_footer flex justify-between items-center">
             <div className="professoinals flex flex-col items-center">
               <div className="images pb-4 flex -space-x-3">
                 <img
@@ -212,6 +214,32 @@ export default function Hero() {
               <div className="text-gray-600">professionals</div>
             </div>
             <div className="watchvideo px-16 py-6.5 flex items-center gap-2 border border-dotted border-blue-500 rounded-[16px]">
+              <div className="video_icon">
+                <img src="/video_icon.png" alt="video icon" />
+              </div>
+              <div className="video_text text-gray-500">Watch Video</div>
+            </div>
+          </div> */}
+
+          <div className="hero_footer flex flex-col sm:flex-row justify-between items-center sm:gap-6 gap-4 mt-8 w-full">
+            {/* Professionals */}
+            <div className="professoinals flex flex-col items-center">
+              <div className="images pb-4 flex -space-x-3">
+                {["/1.png", "/2.png", "/3.png", "/4.png"].map((src, i) => (
+                  <img
+                    key={i}
+                    className="w-[40px] h-[40px] rounded-full border-2 border-white"
+                    src={src}
+                    alt="people"
+                  />
+                ))}
+              </div>
+              <div className="text-[20px] font-semibold">25k+</div>
+              <div className="text-gray-600">professionals</div>
+            </div>
+
+            {/* Watch Video */}
+            <div className="watchvideo px-16 py-[26px] flex items-center gap-2 border border-dotted border-blue-500 rounded-[16px] mt-4 sm:mt-0">
               <div className="video_icon">
                 <img src="/video_icon.png" alt="video icon" />
               </div>
