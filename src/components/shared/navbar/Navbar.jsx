@@ -168,8 +168,8 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="sticky top-0 z-50 w-full bg-white pb-4">
-      <header className="w-full max-w-[1170px] h-[48px] mx-auto  mt-8 flex justify-between items-center">
+    <div className="sticky top-0 z-[60] w-full  bg-white pb-4">
+      <header className="w-full max-w-[1170px] h-[48px] mx-auto  mt-8 flex justify-between items-center px-4 md:px-0">
         {/* Left: Logo */}
         <div className="flex items-center gap-2 font-bold text-lg">
           <img src="/logo.svg" alt="logo" className="w-6 h-6" />

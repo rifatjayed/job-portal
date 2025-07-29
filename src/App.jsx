@@ -8,6 +8,7 @@ import Layout from "./components/layout/Layout";
 import Contact from "./components/pages/contact/Contact";
 import Login from "./components/pages/login/Login";
 import EditProfile from "./components/pages/editProfile/EditProfile";
+import Register from "./components/pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
       {
         path: "/edit-profile",

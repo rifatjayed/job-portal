@@ -209,8 +209,8 @@ function About() {
         </div>
       </div> */}
 
-      <div className="w-[1184px] max-w-full flex flex-col md:flex-row justify-between gap-8 md:gap-16 mt-10 items-stretch mx-auto px-4">
-        <div className="flex-1 flex flex-col justify-start gap-8">
+      <div className="w-[1184px] max-w-full flex flex-col md:flex-row justify-between gap-8 md:gap-16 mt-10 items-stretch mx-auto">
+        <div className="flex-1 flex flex-col justify-start gap-8 px-8 md:px-0">
           <div className="text-2xl md:text-[40px] font-bold">Who we are</div>
           <div className="text-justify">
             <p>
@@ -287,7 +287,7 @@ function About() {
 
       <div className="w-full py-20">
         <div className="mx-auto w-[1100px] max-w-full flex flex-col-reverse md:flex-row justify-between items-stretch gap-8 md:gap-16 px-4">
-          <div className="flex-1 my-auto">
+          <div className="flex-1 my-auto ">
             <h1 className="text-2xl md:text-[40px] font-bold pb-6">Mission</h1>
             <ul className="pl-1 w-max">
               <li className="w-full flex items-center gap-3 py-4 border-b border-b-gray-400">
