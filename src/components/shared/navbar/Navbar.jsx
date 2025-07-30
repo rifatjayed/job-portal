@@ -144,18 +144,32 @@
 //   );
 // }
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react"; // Optional: for hamburger icon
+import { AuthContext } from "../../../Context/AuthContext";
 
 export default function Navbar() {
   const [signin, setSignin] = useState(false);
+
   const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // For mobile
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
 
   const dropdownRef = useRef(null);
 
   const activeClass = "border-b border-blue-600 text-blue-600";
+
+  const handleLogOut = () => {
+    logOut()
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -219,10 +233,10 @@ export default function Navbar() {
             ref={dropdownRef}
             onClick={() => setOpen(!open)}
           >
-            {!signin ? (
+            {/* {!signin ? (
               <>
                 <Link
-                  onClick={() => setSignin(true)}
+                  to="/login"
                   className="text-blue-600 px-9 py-3 border rounded border-gray-500"
                 >
                   Login
@@ -296,6 +310,85 @@ export default function Navbar() {
                     </div>
                   </div>
                 )}
+              </>
+            )} */}
+            {user ? (
+              <>
+                <div className="cursor-pointer">
+                  <img
+                    className="w-12 h-12 rounded-full object-cover"
+                    src="/avatar.png"
+                    alt=""
+                  />
+                </div>
+                <div className="flex flex-col items-start cursor-pointer">
+                  <div className="text-lg font-medium">{user.displayName}</div>
+                  <div className="text-gray-500">Software Engineer</div>
+                </div>
+                {open && (
+                  <div className="absolute w-[300px] shadow-2xl bg-gray-100 bottom-0 right-0 translate-y-72 z-50 rounded-lg">
+                    <div className="relative flex gap-4 p-4 pb-6 cursor-pointer">
+                      <img
+                        className="w-12 h-12 rounded-full object-cover"
+                        src="/avatar.png"
+                        alt=""
+                      />
+                      <div className="flex flex-col justify-center items-start">
+                        <div className="text-lg font-medium">Rifat Jayed</div>
+                        <div className="text-gray-500">Software Engineer</div>
+                      </div>
+                      <img
+                        className="absolute top-0 right-4 -translate-y-full z-22"
+                        src="/trigon.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div>
+                      <Link
+                        to="/edit-profile"
+                        className="flex items-center gap-3 py-2 px-6 border-t border-b border-gray-400 hover:bg-white"
+                      >
+                        <img className="w-6 h-6" src="/setting.svg" alt="" />
+                        My Profile
+                      </Link>
+                      <Link
+                        to="/jobs"
+                        className="flex items-center gap-3 py-2 px-6 hover:bg-white"
+                      >
+                        <img className="w-6 h-6" src="/setting.svg" alt="" />
+                        My Jobs
+                      </Link>
+                      <Link
+                        to="/edit-profile"
+                        className="flex items-center gap-3 py-2 px-6 border-t border-b border-gray-400 hover:bg-white"
+                      >
+                        <img className="w-6 h-6" src="/setting.svg" alt="" />
+                        Settings
+                      </Link>
+                    </div>
+                    <div
+                      className="text-center cursor-pointer pt-6 pb-4 text-lg text-blue-600 font-medium"
+                      onClick={() => handleLogOut()}
+                    >
+                      Sign Out
+                    </div>
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="text-blue-600 px-9 py-3 border rounded border-gray-500"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="text-white px-9 py-3 rounded border-blue-600 bg-blue-600"
+                >
+                  Register
+                </Link>
               </>
             )}
           </div>

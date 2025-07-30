@@ -1,8 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router";
+import React, { useContext, useState } from "react";
 import MailIcon from "../../../assets/gmail.svg?react";
 import LockIcon from "../../../assets/lock.svg?react";
+import { AuthContext } from "../../../Context/AuthContext";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+// import { auth } from "../../../firebase/firebase.config";
 
 function Login() {
+  const { signInUser, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  // const handleGoogleSignIn = () => {
+  //   signInWithPopup(auth, provider)
+  //     .then((result) => {
+  //       console.log("Logged in:", result.user);
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
+
+  const handleGoogleSign = () => {
+    signInWithGoogle()
+      .then((result) => {
+        navigate("/");
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div
       className="w-[1170px]  flex justify-around items-stretch"
@@ -60,6 +86,12 @@ function Login() {
             Log In
           </div>
         </form>
+        <button
+          onClick={handleGoogleSign}
+          className="bg-blue-600 text-white px-6 py-3 rounded"
+        >
+          Sign in with Google
+        </button>
         <Link to="/register">
           Didn't have account? <span className="text-blue-500">Register</span>
         </Link>
