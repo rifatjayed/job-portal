@@ -334,7 +334,9 @@ export default function Navbar() {
                         alt=""
                       />
                       <div className="flex flex-col justify-center items-start">
-                        <div className="text-lg font-medium">Rifat Jayed</div>
+                        <div className="text-lg font-medium">
+                          {user.displayName}
+                        </div>
                         <div className="text-gray-500">Software Engineer</div>
                       </div>
                       <img
@@ -419,13 +421,10 @@ export default function Navbar() {
             </NavLink>
           </nav>
           <div className="flex flex-col gap-3 pt-2">
-            {!signin ? (
+            {!user ? (
               <>
                 <Link
-                  onClick={() => {
-                    setSignin(true);
-                    setMenuOpen(false);
-                  }}
+                  to="/login"
                   className="text-blue-600 px-4 py-2 border rounded border-gray-500 text-center"
                 >
                   Login
@@ -446,7 +445,9 @@ export default function Navbar() {
                     alt=""
                   />
                   <div>
-                    <div className="text-base font-medium">Rifat Jayed</div>
+                    <div className="text-base font-medium">
+                      {user.displayName}
+                    </div>
                     <div className="text-sm text-gray-500">
                       Software Engineer
                     </div>
