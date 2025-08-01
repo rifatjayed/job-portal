@@ -380,7 +380,7 @@ function Register() {
             <button
               type="submit"
               className="w-full px-6 py-4 bg-blue-600 text-white text-center mt-4 mb-6 cursor-pointer"
-              // onClick={() => setOpen(true)}
+              onClick={() => setOpen(true)}
             >
               Create my account
             </button>

@@ -270,7 +270,7 @@ export default function () {
           </div>
         </div>
       </div> */}
-      <div className="px-4 md:px-10 lg:px-[135px] mt-[32px]">
+      <div className="px-8 md:px-10 lg:px-[135px] mt-[32px]">
         <div className="flex flex-col lg:flex-row justify-between gap-[45px]">
           {/* Left Section */}
           <div className="flex-1">

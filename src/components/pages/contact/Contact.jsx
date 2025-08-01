@@ -144,7 +144,7 @@ your job requirements."
       <div className="w-[1170px] max-w-full mt-[80px] flex justify-center mx-auto ">
         <div className="w-full flex flex-col lg:flex-row gap-8">
           {/* Left Side: Form */}
-          <div className="flex-1 flex flex-col gap-10 px-8 md:px-0">
+          <div className="flex-1 flex flex-col gap-10 px-8 lg:px-0">
             <div>
               <div className="text-2xl md:text-[32px] font-semibold">
                 Send Us Message

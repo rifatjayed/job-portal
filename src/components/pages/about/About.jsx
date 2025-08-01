@@ -210,7 +210,7 @@ function About() {
       </div> */}
 
       <div className="w-[1184px] max-w-full flex flex-col md:flex-row justify-between gap-8 md:gap-16 mt-10 items-stretch mx-auto">
-        <div className="flex-1 flex flex-col justify-start gap-8 px-8 md:px-0">
+        <div className="flex-1 flex flex-col justify-start gap-8 px-8 lg:px-0">
           <div className="text-2xl md:text-[40px] font-bold">Who we are</div>
           <div className="text-justify">
             <p>
