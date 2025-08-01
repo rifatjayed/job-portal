@@ -1,3 +1,5 @@
+import React, { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
 import MailIcon from "../../assets/img/gmail.svg?react";
 // import MailIcon from "../../assets/img/";
 import LockIcon from "../../assets/img/lock.svg?react";
@@ -7,15 +9,107 @@ import LinkedIcon from "../../assets/img/linkedin.svg?react";
 import UserIcon from "../../assets/img/user.svg?react";
 // import ModalContainer from "../components/ModalContainer";
 import ModalContainer from "../../components/modal/ModalContainer";
-import { useState } from "react";
+
 import Modal from "../../components/modal/ModalRegistration";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
+import { updateProfile } from "firebase/auth";
 // import Banner from "../components/Banner";
 import Banner from "../../components/shared/banner/Banner";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
   const [open, setOpen] = useState(false);
   const activeClass = "bg-white text-blue-600";
+
+  const navigate = useNavigate();
+  const { createUser, setUser } = useContext(AuthContext);
+  console.log(createUser);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    reset();
+
+    const { email, password } = data;
+
+    // createUser(email, password)
+    //   .then((result) => {
+    //     setUser({
+    //       name: data.fullName,
+    //       // email: result.user.email,
+    //       // uid: result.user.uid,
+    //     });
+
+    //     toast.success("User created successfully!");
+    //     navigate("/");
+    //     console.log(result.user);
+    //   })
+    //   .catch((error) => {
+    //     toast.error("Something went wrong!");
+
+    //     console.log(error);
+    //   });
+
+    // createUser(email, password)
+    //   // .then((result) => {
+    //   //   const user = result.user;
+    //   .then((userCredential) => {
+    //     const user = userCredential.user;
+
+    //     // Step 1: Firebase user object এ নাম সেট করো
+    //     updateProfile(user, {
+    //       displayName: data.fullName,
+    //     })
+    //       .then(() => {
+    //         toast.success("User created successfully!");
+    //         navigate("/");
+    //       })
+    //       .catch((error) => {
+    //         console.log("Update profile error:", error);
+    //       });
+    //   })
+    //   .catch((error) => {
+    //     toast.error("Something went wrong!");
+    //     console.log(error);
+    //   });
+
+    createUser(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+
+        updateProfile(user, {
+          displayName: data.fullName,
+        })
+          .then(() => {
+            setUser({
+              uid: user.uid,
+              email: user.email,
+              name: data.fullName,
+            });
+
+            toast.success("User created successfully!");
+            navigate("/");
+          })
+          .catch((error) => {
+            console.log("Update profile error:", error);
+          });
+      })
+      .catch((error) => {
+        toast.error("Something went wrong!");
+        console.log(error);
+      });
+
+    // console.log("Register Data:", data);
+    // console.log("Register Data:", data.fullName);
+  };
   return (
     <>
       <Banner title="Register for an free account as">
@@ -203,39 +297,64 @@ function Register() {
               <div className="flex-grow border-t border-gray-300"></div>
             </div>
           </div>
-          <form className="w-full flex flex-col gap-6 mt-8">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="w-full flex flex-col gap-6 mt-8"
+          >
             <div className="relative">
               <input
+                {...register("fullName", { required: "Full name is required" })}
                 className="w-full p-4 pl-12 bg-gray-100"
                 type="text"
-                placeholder="Name"
+                placeholder="Enter your full name"
               />
               <UserIcon className="absolute top-4 left-4 w-6 h-6 text-gray-500" />
+              {errors.fullName && (
+                <p className="text-red-500 text-sm">
+                  {errors.fullName.message}
+                </p>
+              )}
             </div>
             <div className="relative">
               <input
+                {...register("email", { required: "Email is required" })}
                 className="w-full p-4 pl-12 bg-gray-100"
-                type="text"
-                placeholder="Email or Phone"
+                type="email"
+                placeholder="Enter your email"
               />
               <MailIcon className="absolute top-4 left-4 w-6 h-6 text-gray-500" />
+              {errors.email && (
+                <p className="text-red-500 text-sm">{errors.email.message}</p>
+              )}
             </div>
             <div className="relative">
               <input
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Must be at least 6 characters",
+                  },
+                })}
                 className="w-full p-4 pl-12 bg-gray-100"
                 type="password"
                 placeholder="Password"
               />
               <LockIcon className="absolute top-4 left-4 w-6 h-6 text-gray-500" />
+              {errors.password && (
+                <p className="text-red-500 text-sm">
+                  {errors.password.message}
+                </p>
+              )}
             </div>
-            <div className="relative">
+            {/* <div className="relative">
               <input
                 className="w-full p-4 pl-12 bg-gray-100"
                 type="password"
                 placeholder="Confirm Password"
               />
               <LockIcon className="absolute top-4 left-4 w-6 h-6 text-gray-500" />
-            </div>
+            </div> */}
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">
                 <input
@@ -258,12 +377,13 @@ function Register() {
                 </label>
               </div>
             </div>
-            <div
+            <button
+              type="submit"
               className="w-full px-6 py-4 bg-blue-600 text-white text-center mt-4 mb-6 cursor-pointer"
-              onClick={() => setOpen(true)}
+              // onClick={() => setOpen(true)}
             >
               Create my account
-            </div>
+            </button>
           </form>
           <div className="text-center text-sm text-gray-500">
             <p>
@@ -289,6 +409,8 @@ function Register() {
             }
           />
         </ModalContainer>
+
+        <ToastContainer position="top-right" autoClose={3000} />
       </div>
     </>
   );

@@ -155,7 +155,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // For mobile
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const dropdownRef = useRef(null);
 
@@ -322,8 +322,8 @@ export default function Navbar() {
                   />
                 </div>
                 <div className="flex flex-col items-start cursor-pointer">
-                  <div className="text-lg font-medium">{user.displayName}</div>
-                  <div className="text-gray-500">Software Engineer</div>
+                  <div className="text-lg font-medium">{user.name}</div>
+                  {/* <div className="text-gray-500">Software Engineer</div> */}
                 </div>
                 {open && (
                   <div className="absolute w-[300px] shadow-2xl bg-gray-100 bottom-0 right-0 translate-y-72 z-50 rounded-lg">
@@ -334,10 +334,8 @@ export default function Navbar() {
                         alt=""
                       />
                       <div className="flex flex-col justify-center items-start">
-                        <div className="text-lg font-medium">
-                          {user.displayName}
-                        </div>
-                        <div className="text-gray-500">Software Engineer</div>
+                        <div className="text-lg font-medium">{user.name}</div>
+                        {/* <div className="text-gray-500">Software Engineer</div> */}
                       </div>
                       <img
                         className="absolute top-0 right-4 -translate-y-full z-22"
@@ -445,12 +443,10 @@ export default function Navbar() {
                     alt=""
                   />
                   <div>
-                    <div className="text-base font-medium">
-                      {user.displayName}
-                    </div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-base font-medium">{user.name}</div>
+                    {/* <div className="text-sm text-gray-500">
                       Software Engineer
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <Link to="/edit-profile" className="hover:underline">
