@@ -264,7 +264,7 @@ function About() {
               alt=""
             />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 px-10">
             <h1 className="text-2xl md:text-[40px] font-bold pb-6">Mission</h1>
             <ul className="pl-1 w-max">
               <li className="w-full flex items-center gap-3 py-4 border-b border-b-gray-400">

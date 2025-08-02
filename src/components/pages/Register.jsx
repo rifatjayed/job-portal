@@ -21,9 +21,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const activeClass = "bg-white text-blue-600";
-
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const navigate = useNavigate();
   const { createUser, setUser } = useContext(AuthContext);
   console.log(createUser);
@@ -35,41 +36,59 @@ function Register() {
     formState: { errors },
   } = useForm();
 
+  // const onSubmit = (data) => {
+  //   reset();
+
+  //   const { email, password } = data;
+
+  //   createUser(email, password)
+  //     .then((userCredential) => {
+  //       const user = userCredential.user;
+
+  //       updateProfile(user, {
+  //         displayName: data.fullName,
+  //       })
+  //         .then(() => {
+  //           setUser({
+  //             uid: user.uid,
+  //             email: user.email,
+  //             name: data.fullName,
+  //           });
+
+  //           toast.success("User created successfully!");
+  //           navigate("/");
+  //         })
+  //         .catch((error) => {
+  //           console.log("Update profile error:", error);
+  //         });
+  //     })
+  //     .catch((error) => {
+  //       toast.error("Something went wrong!");
+  //       console.log(error);
+  //     });
+
   const onSubmit = (data) => {
     reset();
-
-    const { email, password } = data;
-
-    // createUser(email, password)
-    //   .then((result) => {
-    //     setUser({
-    //       name: data.fullName,
-    //       // email: result.user.email,
-    //       // uid: result.user.uid,
-    //     });
-
-    //     toast.success("User created successfully!");
-    //     navigate("/");
-    //     console.log(result.user);
-    //   })
-    //   .catch((error) => {
-    //     toast.error("Something went wrong!");
-
-    //     console.log(error);
-    //   });
+    const { fullName, email, password } = data;
+    setError("");
+    setSuccess("");
 
     // createUser(email, password)
-    //   // .then((result) => {
-    //   //   const user = result.user;
     //   .then((userCredential) => {
     //     const user = userCredential.user;
 
-    //     // Step 1: Firebase user object এ নাম সেট করো
     //     updateProfile(user, {
     //       displayName: data.fullName,
     //     })
     //       .then(() => {
+    //         setUser({
+    //           uid: user.uid,
+    //           email: user.email,
+    //           name: data.fullName,
+    //         });
+
     //         toast.success("User created successfully!");
+    //         setOpen(true); // ✅ Open modal only on success
     //         navigate("/");
     //       })
     //       .catch((error) => {
@@ -85,30 +104,37 @@ function Register() {
       .then((userCredential) => {
         const user = userCredential.user;
 
-        updateProfile(user, {
-          displayName: data.fullName,
-        })
+        updateProfile(user, { displayName: fullName })
           .then(() => {
             setUser({
               uid: user.uid,
               email: user.email,
-              name: data.fullName,
+              name: fullName,
             });
 
+            setSuccess("User created successfully!");
             toast.success("User created successfully!");
+            // setOpen(true);
+            reset();
             navigate("/");
           })
           .catch((error) => {
-            console.log("Update profile error:", error);
+            setError("Profile update failed.");
+            console.error(error);
           });
       })
       .catch((error) => {
-        toast.error("Something went wrong!");
-        console.log(error);
+        if (error.code === "auth/email-already-in-use") {
+          toast.error("This email is already registered. Please log in.");
+        } else if (error.code === "auth/weak-password") {
+          toast.error(
+            "Password is too weak. Please use at least 6 characters."
+          );
+        } else {
+          toast.error("User creation failed. Please try again.");
+        }
+        console.error(error);
       });
-
-    // console.log("Register Data:", data);
-    // console.log("Register Data:", data.fullName);
   };
   return (
     <>
@@ -377,10 +403,14 @@ function Register() {
                 </label>
               </div>
             </div>
+
+            {/* ✅ Firebase Error & Success Messages */}
+            {error && <p className="text-red-500 mb-4">{error}</p>}
+            {success && <p className="text-green-500 mb-4">{success}</p>}
             <button
               type="submit"
               className="w-full px-6 py-4 bg-blue-600 text-white text-center mt-4 mb-6 cursor-pointer"
-              onClick={() => setOpen(true)}
+              // onClick={() => setOpen(true)}
             >
               Create my account
             </button>
@@ -398,7 +428,7 @@ function Register() {
         </div>
 
         {/* Modal */}
-        <ModalContainer isOpen={open} onClose={() => setOpen(false)}>
+        {/* <ModalContainer isOpen={open} onClose={() => setOpen(false)}>
           <Modal
             title="Registered Successfully"
             description={
@@ -408,7 +438,7 @@ function Register() {
               </>
             }
           />
-        </ModalContainer>
+        </ModalContainer> */}
 
         <ToastContainer position="top-right" autoClose={3000} />
       </div>
