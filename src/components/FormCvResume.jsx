@@ -79,9 +79,12 @@ import FileIcon from "../assets/fileupload.svg?react";
 
 function CvResumeForm() {
   return (
-    <div className="flex flex-col gap-14">
-      {/* CV/Resume Section */}
-      <div className="px-8 md:px-10 py-6 border border-gray-200 rounded flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-30">
+    // <div className="flex flex-col gap-14">
+    //   {/* CV/Resume Section */}
+    //   <div className="px-8 md:px-6 border border-gray-200 rounded flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-30">
+    //
+    <div className="flex flex-col items-center gap-14 px-8 md:px-6">
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-30 w-full">
         {/* Left Side */}
         <div className="md:w-[260px] flex flex-col gap-3">
           <h1 className="text-[20px] font-semibold">CV/Resume</h1>

@@ -144,9 +144,11 @@ import LinkedIcon from "../assets/linkedin.svg?react";
 
 function FormSkill() {
   return (
-    <div className="flex flex-col items-center gap-14 px-8">
-      {/* Skills Section */}
-      <div className="flex flex-col md:flex-row gap-30 w-full max-w-[960px]">
+    // <div className="flex flex-col items-center gap-14 px-8 md:px-6">
+    //   {/* Skills Section */}
+    //   <div className="flex flex-col md:flex-row gap-30 w-full max-w-[960px]">
+    <div className="flex flex-col items-center gap-14 px-8 md:px-6">
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-30 w-full">
         <div className="md:w-[260px] flex flex-col gap-3">
           <h1 className="text-[20px] font-semibold">Skills</h1>
           <p className="text-[14px] text-gray-600">

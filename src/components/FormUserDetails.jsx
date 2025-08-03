@@ -135,9 +135,11 @@ import ImagerecIcon from "../assets/image-rectangle.svg?react";
 
 function FormUserDetails() {
   return (
-    <div className="flex flex-col items-center gap-14 px-8 sm:px-6 md:px-10">
-      {/* Profile photo section */}
-      <div className="flex flex-col lg:flex-row gap-6 lg:gap-[120px] w-full">
+    // <div className="flex flex-col items-center gap-14 px-8 md:px-6">
+    //   {/* Profile photo section */}
+    //   <div className="flex flex-col lg:flex-row gap-6 lg:gap-[120px] w-full">
+    <div className="flex flex-col items-center gap-14 px-8 md:px-6">
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-30 w-full">
         <div className="w-full lg:w-[260px] flex flex-col gap-3">
           <h1 className="text-[20px] font-semibold">Profile photo</h1>
           <p className="text-[14px] text-gray-600">

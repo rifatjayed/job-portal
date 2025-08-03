@@ -36,11 +36,11 @@ function EditProfile() {
       />
       <div>
         {steps[step]}
-        <div className="w-full pt-14 flex justify-between items-center">
+        <div className="w-full pt-14 flex justify-between">
           {step > 0 ? (
             <button
               onClick={prevStep}
-              className="px-6.5 py-3 flex items-center gap-2 bg-gray-100 rounded cursor-pointer"
+              className="px-6.5 py-3 flex gap-2 bg-gray-100 rounded cursor-pointer"
             >
               <DirectionIcon />
               Back
@@ -52,7 +52,7 @@ function EditProfile() {
           {step < steps.length - 1 ? (
             <button
               onClick={nextStep}
-              className="px-6.5 py-3 flex items-center gap-2 bg-blue-700 text-white rounded cursor-pointer"
+              className="px-6.5 py-3 flex  gap-2 bg-blue-700 text-white rounded cursor-pointer"
             >
               Next
               <DirectionIcon className="rotate-180" />
@@ -67,6 +67,7 @@ function EditProfile() {
             </button>
           )}
         </div>
+
         <ModalContainer isOpen={open} onClose={() => setOpen(false)}>
           <Modal
             title="Profile updated"

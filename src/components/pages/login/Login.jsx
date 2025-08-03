@@ -28,6 +28,17 @@ function Login() {
     setError(null);
     setSuccess(null);
 
+    // signInUser(email, password)
+    //   .then((result) => {
+    //     console.log(result.user);
+    //     setSuccess("Login done");
+    //     reset();
+    //     navigate("/");
+    //   })
+    //   .catch((error) => {
+    //     setError(error.message || "Login failed");
+    //     console.log(error);
+    //   });
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
@@ -36,8 +47,30 @@ function Login() {
         navigate("/");
       })
       .catch((error) => {
-        setError(error.message || "Login failed");
-        console.log(error);
+        console.log("Firebase Error:", error.code);
+
+        let message = "Login failed. Please try again.";
+
+        switch (error.code) {
+          case "auth/invalid-credential":
+          case "auth/wrong-password":
+            message = "Invalid email or password.";
+            break;
+          case "auth/user-not-found":
+            message = "No account found with this email.";
+            break;
+          case "auth/too-many-requests":
+            message =
+              "Too many failed attempts. Please try again later or reset your password.";
+            break;
+          case "auth/network-request-failed":
+            message = "Network error. Please check your internet connection.";
+            break;
+          default:
+            message = error.message;
+        }
+
+        setError(message);
       });
   };
 

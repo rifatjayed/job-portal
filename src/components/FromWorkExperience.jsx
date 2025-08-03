@@ -98,8 +98,10 @@ import ImagerecIcon from "../assets/image-rectangle.svg?react";
 
 function FromWorkExperience() {
   return (
-    <div className="flex flex-col items-center gap-14 px-8 md:px-0">
-      <div className="flex flex-col md:flex-row gap-30  w-full max-w-[1200px]">
+    // <div className="flex flex-col items-center gap-14 px-8 md:px-6">
+    //   <div className="flex flex-col md:flex-row gap-30  w-full max-w-[1200px]">
+    <div className="flex flex-col items-center gap-14 px-8 md:px-6">
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-30 w-full">
         {/* Left section */}
 
         <div className="w-full md:w-[260px] flex flex-col gap-3">

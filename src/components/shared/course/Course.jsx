@@ -81,27 +81,29 @@ function Courses() {
           enhance your professional skills and propel your career forward
         </div>
 
-        {/* Tabs */}
-        <div className="tab px-4 py-3 flex flex-wrap justify-center gap-2 sm:gap-6 bg-blue-600 rounded-4xl text-white text-sm sm:text-base">
-          {tabs.map((tab, index) => (
-            <React.Fragment key={tab}>
-              <div
-                onClick={() => setActiveTab(tab)}
-                className={`${tabBaseClasses} ${
-                  activeTab === tab
-                    ? "bg-white text-black px-4 py-0.5 rounded-4xl"
-                    : ""
-                }`}
-              >
-                {tab}
-              </div>
-              {index !== tabs.length - 1 && (
-                <span className="hidden sm:inline text-white select-none">
-                  |
-                </span>
-              )}
-            </React.Fragment>
-          ))}
+        <div className=" overflow-x-auto">
+          <div className="min-w-max flex gap-2 sm:gap-4 px-4 py-3 bg-blue-600 rounded-4xl text-sm sm:text-base">
+            {tabs.map((tab, index) => (
+              <React.Fragment key={tab}>
+                <div
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-4 py-1 rounded-full cursor-pointer whitespace-nowrap transition-all duration-200 ease-in-out ${
+                    activeTab === tab
+                      ? "bg-white text-black"
+                      : "bg-blue-600 text-white hover:bg-white hover:text-black"
+                  }`}
+                >
+                  {tab}
+                </div>
+
+                {index !== tabs.length - 1 && (
+                  <span className="hidden sm:inline text-white select-none">
+                    |
+                  </span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </div>
 
