@@ -6,7 +6,7 @@ export default function Layout() {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col items-center gap-20 ">
+      <main className="flex flex-col items-center gap-20 mt-[100px]">
         <Outlet />
       </main>
 

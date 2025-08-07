@@ -1,6 +1,8 @@
-import React from "react";
-// import descriptionBG from "../../../assets/details.png";
-// import PC from "../../../assets/pc.png";
+import React, { useContext } from "react";
+// import { JobContext } from "../../../Context/JobContext";
+import { JobContext } from "../../../Context/JobContext";
+import { useParams } from "react-router-dom";
+// useLocation ,
 import { RxBookmark } from "react-icons/rx";
 import { FiShare2 } from "react-icons/fi";
 import { FaGraduationCap, FaBuromobelexperte } from "react-icons/fa";
@@ -15,6 +17,24 @@ import JobItem from "../../shared/JobItem";
 import BannerProfile from "../../shared/banner/BannerProfile";
 
 export default function () {
+  // const location = useLocation();
+  // const jobs = location.state?.job;
+  // console.log(jobs);
+
+  const { id } = useParams();
+  console.log(id);
+  const { jobs } = useContext(JobContext);
+
+  const job = jobs.find((j) => j.id === id);
+
+  if (!job) {
+    return (
+      <div className="text-center text-red-500 mt-20 text-xl">
+        Job not found
+      </div>
+    );
+  }
+
   return (
     <>
       <BannerProfile />
@@ -270,26 +290,27 @@ export default function () {
           </div>
         </div>
       </div> */}
+
       <div className="px-8 md:px-10 lg:px-[135px] mt-[32px]">
         <div className="flex flex-col lg:flex-row justify-between gap-[45px]">
           {/* Left Section */}
           <div className="flex-1">
             <div>
-              <h1 className="font-semibold text-2xl mb-4">Hemp Co. Ltd</h1>
+              <h1 className="font-semibold text-2xl mb-4">{job.job_title}</h1>
               <p className="flex items-center gap-2 font-normal text-base mb-[24px]">
                 <span>
                   <CiLocationOn />
                 </span>
-                Mirpur, Dhaka
+                {job.location}
               </p>
             </div>
 
             <div className="flex flex-wrap gap-[12px] font-normal text-base mb-[24px]">
               <p className="text-[#9199A3] bg-gray-100 rounded-3xl px-[10px] py-[6px]">
-                Full-Time
+                {job.job_type}
               </p>
               <p className="text-white bg-[#9199A3] rounded-3xl px-[10px] py-[6px]">
-                $ 1500 - $ 2000
+                {job.salary_range}
               </p>
               <p className="text-[#FF0000] bg-[#FFEDED] rounded-3xl px-[10px] py-[6px]">
                 Multinational brand
@@ -299,13 +320,10 @@ export default function () {
             {/* Description */}
             <div className="mt-[40px]">
               <h1 className="text-xl text-black font-semibold">Description</h1>
-              <p className="text-base text-[#5E6670] mt-2">
-                As a Software Administrator, you will be responsible for
-                managing, maintaining, and optimizing software systems...
-              </p>
-              <p className="text-base text-[#18191C] mt-2">
+              <p className="text-base text-[#5E6670] mt-2">{job.description}</p>
+              {/* <p className="text-base text-[#18191C] mt-2">
                 Want to work with us? You're in good company!
-              </p>
+              </p> */}
             </div>
 
             {/* Qualifications */}
@@ -314,7 +332,7 @@ export default function () {
                 Qualifications
               </h1>
               <ul className="list-disc list-inside text-base text-gray-800 space-y-1 mt-2">
-                <li>
+                {/* <li>
                   Bachelor’s degree in Computer Science, IT, or related field.
                 </li>
                 <li>Experience as a Software Administrator or similar role.</li>
@@ -323,7 +341,10 @@ export default function () {
                 </li>
                 <li>Knowledge of OS, databases, networking.</li>
                 <li>Familiar with deployment tools, version control.</li>
-                <li>Strong problem-solving and communication skills.</li>
+                <li>Strong problem-solving and communication skills.</li> */}
+                {job.qualifications.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </div>
 
@@ -333,10 +354,13 @@ export default function () {
                 Responsibilities
               </h1>
               <ul className="list-disc list-inside text-base text-gray-800 space-y-1 mt-2">
-                <li>Maintain and monitor software systems.</li>
+                {/* <li>Maintain and monitor software systems.</li>
                 <li>Work with IT to deploy and update applications.</li>
                 <li>Ensure security and performance of tools.</li>
-                <li>Document processes and support users.</li>
+                <li>Document processes and support users.</li> */}
+                {job.responsibilities.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </div>
 
@@ -344,10 +368,13 @@ export default function () {
             <div className="mt-[24px]">
               <h1 className="text-xl text-black font-semibold">Benefits</h1>
               <ul className="list-disc list-inside text-base text-gray-800 space-y-1 mt-2">
-                <li>Attractive salary package.</li>
+                {/* <li>Attractive salary package.</li>
                 <li>Performance bonuses.</li>
                 <li>Flexible work environment.</li>
-                <li>Growth opportunities and team collaboration.</li>
+                <li>Growth opportunities and team collaboration.</li> */}
+                {job.benefits.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -373,42 +400,52 @@ export default function () {
                   <RiCalendar2Line size={28} />
                   <div>
                     <p className="text-sm text-gray-400">Job Posted</p>
-                    <p className="text-base text-gray-600">March 02, 2024</p>
+                    <p className="text-base text-gray-600">
+                      {job.meta.posted.start}
+                    </p>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 text-blue-600">
                   <CiTimer size={28} />
                   <div>
                     <p className="text-sm text-gray-400">Deadline</p>
-                    <p className="text-base text-gray-600">April 03, 2024</p>
+                    <p className="text-base text-gray-600">
+                      {job.meta.posted.end}
+                    </p>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 text-blue-600">
                   <RiLayoutGrid2Line size={28} />
                   <div>
                     <p className="text-sm text-gray-400">Level</p>
-                    <p className="text-base text-gray-600">Mid level</p>
+                    <p className="text-base text-gray-600">{job.meta.level}</p>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 text-blue-600">
                   <FaGraduationCap size={28} />
                   <div>
                     <p className="text-sm text-gray-400">Education</p>
-                    <p className="text-base text-gray-600">Master's</p>
+                    <p className="text-base text-gray-600">
+                      {job.meta.education}
+                    </p>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 text-blue-600">
                   <FaBuromobelexperte size={28} />
                   <div>
                     <p className="text-sm text-gray-400">Experience</p>
-                    <p className="text-base text-gray-600">2-3 Years</p>
+                    <p className="text-base text-gray-600">
+                      {job.meta.experience}
+                    </p>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 text-blue-600">
                   <IoPersonOutline size={28} />
                   <div>
                     <p className="text-sm text-gray-400">Vacancy</p>
-                    <p className="text-base text-gray-600">05</p>
+                    <p className="text-base text-gray-600">
+                      {job.meta.vacancy}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -418,12 +455,7 @@ export default function () {
             <div className="p-[24px] border border-gray-100">
               <h4 className="text-gray-400 mb-[16px]">Skills</h4>
               <div className="flex flex-wrap gap-3">
-                {[
-                  "Web Development",
-                  "User Interface Design",
-                  "HTML",
-                  "HP Programming",
-                ].map((skill, i) => (
+                {job.skills.map((skill, i) => (
                   <p
                     key={i}
                     className="flex text-gray-600 bg-gray-100 px-3 py-1 rounded items-center"
@@ -443,7 +475,13 @@ export default function () {
         <div className="mt-[80px]">
           <h1 className="font-semibold text-[28px] py-[32px]">Similar Jobs</h1>
           <div className="mb-[40px]">
-            <JobItem />
+            {/* <JobItem /> */}
+            {jobs
+              .filter((j) => j.id !== id) // বর্তমান job বাদ দিয়ে
+              .slice(0, 3) // যেকোন ৩টা
+              .map((item) => (
+                <JobItem key={item.id} job={item} />
+              ))}
           </div>
           <div className="text-center">
             <button className="text-base text-white bg-[#0A65CC] px-[32px] py-[8px] mb-[40px] w-full sm:w-auto">

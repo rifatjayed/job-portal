@@ -1,6 +1,6 @@
 let JobData = [
   {
-    id: "job_001",
+    id: "1",
     company: "Hemp Co. Ltd",
     location: "Mohakhali, Dhaka",
     job_type: "Remote",
@@ -49,7 +49,7 @@ let JobData = [
     },
   },
   {
-    id: "job_002",
+    id: "2",
     company: "TechNova Inc.",
     location: "Khulna",
     job_title: "Entry-Level Backend Developer (Contract)",
@@ -94,7 +94,7 @@ let JobData = [
     },
   },
   {
-    id: "job_003",
+    id: " 3",
     company: "GreenByte Solutions",
     location: "Uttara, Dhaka",
     job_title: "Senior Part-Time Software Engineer",
@@ -139,7 +139,7 @@ let JobData = [
     },
   },
   {
-    id: "job_004",
+    id: "4",
     company: "SkyNet Ltd.",
     location: "Banani, Dhaka",
     job_title: "Senior Software Engineer (Contract)",
@@ -185,7 +185,7 @@ let JobData = [
     },
   },
   {
-    id: "job_005",
+    id: "5",
     company: "ByteForge",
     location: "Rajshahi",
     job_title: "Mid-Level Backend Engineer (Remote)",
@@ -237,7 +237,7 @@ let JobData = [
     },
   },
   {
-    id: "job_006",
+    id: "6",
     company: "NextGen Systems",
     location: "Rajshahi",
     job_title: "Senior Part-Time Developer",
@@ -283,7 +283,7 @@ let JobData = [
     },
   },
   {
-    id: "job_007",
+    id: "7",
     company: "CodeWorx",
     location: "Mirpur, Dhaka",
     job_title: "Mid-Level Django Developer (Remote)",
@@ -327,7 +327,7 @@ let JobData = [
     },
   },
   {
-    id: "job_008",
+    id: "8",
     company: "PixelSoft",
     location: "Chittagong",
     job_type: "Part-Time",
@@ -372,7 +372,7 @@ let JobData = [
     },
   },
   {
-    id: "job_009",
+    id: "9",
     company: "SoftCraft",
     location: "Mohakhali, Dhaka",
     job_title: "Mid-Level Full Stack Developer (Contract)",

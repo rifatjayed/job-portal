@@ -230,15 +230,16 @@ export default function Hero() {
           <div className="flex flex-col gap-6">
             <div className="title text-[28px] sm:text-[32px] lg:text-[44px] font-medium leading-tight">
               Jobs Made Simple Dreams Made Real
+              {/* <div className="title text-[44px] font-medium leading-[54px]"></div> */}
             </div>
-            <div className="description text-gray-600 text-[16px] sm:text-[18px] leading-[28px]">
+            <div className="description text-gray-600 text-[16px] sm:text-[18px] leading-[28px] ">
               The mission of transforming aspirations into tangible achievements
               through streamlined employment processes and opportunities.
             </div>
           </div>
 
           {/* Search Bar */}
-          <div className="relative z-2 mt-4 sm:mt-6">
+          <div className="relative z-2 ">
             <Search bgColor="white" btnColor="blue" btnText="white" />
             <img
               className="absolute top-0 left-[90%] -translate-y-full hidden lg:block"
@@ -253,7 +254,7 @@ export default function Hero() {
           </div>
 
           {/* Footer Info */}
-          <div className="hero_footer flex flex-col sm:flex-row justify-between items-center gap-4 mt-8 w-full">
+          <div className="hero_footer flex flex-col md:flex-row justify-between items-center gap-4  w-full">
             <div className="professoinals flex flex-col items-center">
               <div className="images pb-4 flex -space-x-3">
                 {["/1.png", "/2.png", "/3.png", "/4.png"].map((src, i) => (

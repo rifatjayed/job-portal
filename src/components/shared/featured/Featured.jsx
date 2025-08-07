@@ -3,7 +3,7 @@ import { JobContext } from "../../../Context/JobContext";
 import FeatureCard from "./FeaturedCard";
 
 function Featured() {
-  const { jobs, loading } = useContext(JobContext);
+  const { jobs } = useContext(JobContext);
   const firstSixJobs = jobs.slice(0, 6);
   return (
     <div className="w-full max-w-[1170px] mx-auto flex flex-col gap-10 my-20 px-4 sm:px-0">
