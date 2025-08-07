@@ -401,7 +401,7 @@ export default function () {
                   <div>
                     <p className="text-sm text-gray-400">Job Posted</p>
                     <p className="text-base text-gray-600">
-                      {job.meta.posted.start}
+                      {job.meta.posted_on}
                     </p>
                   </div>
                 </div>
@@ -410,7 +410,7 @@ export default function () {
                   <div>
                     <p className="text-sm text-gray-400">Deadline</p>
                     <p className="text-base text-gray-600">
-                      {job.meta.posted.end}
+                      {job.meta.deadline}
                     </p>
                   </div>
                 </div>
