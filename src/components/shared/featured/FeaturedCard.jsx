@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function FeatureCard({ job }) {
   // console.log(job);
@@ -21,9 +22,12 @@ function FeatureCard({ job }) {
           <h6 className="text-[18px] font-medium">{job.company}</h6>
           <p className="text-sm">{job.location}</p>
         </div>
-        <div className="ml-auto self-end px-3.5 py-0.5 text-white bg-blue-600 rounded-sm cursor-pointer group-hover:text-blue-600 group-hover:bg-white">
+        <Link
+          to={`/job-description/${job.id}`}
+          className="ml-auto self-end px-3.5 py-0.5 text-white bg-blue-600 rounded-sm cursor-pointer group-hover:text-blue-600 group-hover:bg-white"
+        >
           Apply
-        </div>
+        </Link>
       </div>
     </div>
   );

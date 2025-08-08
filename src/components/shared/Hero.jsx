@@ -278,7 +278,7 @@ export default function Hero() {
         </div>
 
         {/* Right (Image) */}
-        <div className="hero_right w-full lg:w-auto">
+        <div className="hero_right w-full md:w-auto">
           <img
             src={hero_img}
             alt="hero"
