@@ -187,6 +187,7 @@ export default function JobSearch() {
     selectedCategories, // ✅ Add selectedCategories
     toggleCategory, // ✅ Add toggleCategory
     applyCategoryFilter, // ✅ Add applyCategoryFilter
+    applyFilters,
   } = useContext(JobContext);
 
   const jobTypeCounts = jobs.reduce((acc, job) => {
@@ -309,11 +310,12 @@ export default function JobSearch() {
           </div>
 
           <button
-            onClick={() => {
-              // ✅ Updated onClick handler to apply both filters
-              applyJobTypeFilter();
-              applyCategoryFilter();
-            }}
+            // onClick={() => {
+            //   // ✅ Updated onClick handler to apply both filters
+            //   applyJobTypeFilter();
+            //   applyCategoryFilter();
+            // }}
+            onClick={applyFilters}
             className="text-base text-white bg-[#0A65CC] px-8 py-2 mb-10 rounded"
           >
             Apply Filter
@@ -327,6 +329,7 @@ export default function JobSearch() {
               <h2 className="text-2xl font-semibold">All Jobs</h2>
               <p className="text-base text-gray-600 font-normal mt-2">
                 Filtered {filteredJobs.length} jobs
+                {/* {console.log(filteredJobs)} */}
               </p>
             </div>
             <div className="flex items-center">
@@ -343,6 +346,7 @@ export default function JobSearch() {
           <div className="mt-8 flex flex-col gap-6">
             {filteredJobs.map((job) => (
               <JobItem key={job.id} job={job} />
+              // <h1>{job.job_title}</h1>
             ))}
           </div>
         </div>
