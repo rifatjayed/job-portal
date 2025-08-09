@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 // import { JobContext } from "../../../Context/JobContext";
 import { JobContext } from "../../../Context/JobContext";
 import { useParams } from "react-router-dom";
-// useLocation ,
+
 import { RxBookmark } from "react-icons/rx";
 import { FiShare2 } from "react-icons/fi";
 import { FaGraduationCap, FaBuromobelexperte } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { TiBookmark } from "react-icons/ti";
-
+// import ModalContainer from "../../components/modal/ModalContainer";
+import ModalContainer from "../../modal/ModalContainer";
+import Modal from "../../modal/ModalRegistration";
 import { RiCalendar2Line, RiLayoutGrid2Line } from "react-icons/ri";
 
 import { CiLocationOn, CiTimer } from "react-icons/ci";
@@ -17,9 +19,7 @@ import JobItem from "../../shared/JobItem";
 import BannerProfile from "../../shared/banner/BannerProfile";
 
 export default function () {
-  // const location = useLocation();
-  // const jobs = location.state?.job;
-  // console.log(jobs);
+  const [open, setOpen] = useState(false);
 
   const { id } = useParams();
   console.log(id);
@@ -354,10 +354,6 @@ export default function () {
                 Responsibilities
               </h1>
               <ul className="list-disc list-inside text-base text-gray-800 space-y-1 mt-2">
-                {/* <li>Maintain and monitor software systems.</li>
-                <li>Work with IT to deploy and update applications.</li>
-                <li>Ensure security and performance of tools.</li>
-                <li>Document processes and support users.</li> */}
                 {job.responsibilities.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
@@ -368,10 +364,6 @@ export default function () {
             <div className="mt-[24px]">
               <h1 className="text-xl text-black font-semibold">Benefits</h1>
               <ul className="list-disc list-inside text-base text-gray-800 space-y-1 mt-2">
-                {/* <li>Attractive salary package.</li>
-                <li>Performance bonuses.</li>
-                <li>Flexible work environment.</li>
-                <li>Growth opportunities and team collaboration.</li> */}
                 {job.benefits.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
@@ -382,7 +374,10 @@ export default function () {
           {/* Right Section */}
           <div className="w-full lg:w-[365px] mt-[40px] lg:mt-0">
             <div className="flex gap-3 mb-[40px] justify-end">
-              <button className="text-base text-white bg-blue-600 px-[32px] py-[12px] rounded w-full sm:w-auto">
+              <button
+                onClick={() => setOpen(true)}
+                className="text-base text-white bg-blue-600 px-[32px] py-[12px] rounded w-full sm:w-auto"
+              >
                 Apply now
               </button>
               <div className="w-12 h-12 flex items-center justify-center text-blue-600 border-2 border-blue-600 rounded">
@@ -489,6 +484,20 @@ export default function () {
             </button>
           </div>
         </div>
+
+        {/* Modal */}
+        <ModalContainer isOpen={open} onClose={() => setOpen(false)}>
+          <Modal
+            title="Thanks for your interest!"
+            description="We will review your application and contact you if you're shortlisted."
+            // <>
+            //   <p>Thanks for registration.</p>
+            //   <p>You can find your job easily.</p>
+            // </>
+
+            buttonText=""
+          />
+        </ModalContainer>
       </div>
     </>
   );

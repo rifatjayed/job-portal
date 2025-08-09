@@ -1,7 +1,7 @@
 import BadgeIcon from "../../assets/badge.svg?react";
 import CrossIcon from "../../assets/cross.svg?react";
 import ModalContainer from "./ModalContainer";
-function Modal({ title, description }) {
+function Modal({ title, description, buttonText }) {
   return (
     <>
       <div>
@@ -12,7 +12,7 @@ function Modal({ title, description }) {
         <div className="text-center text-gray-500">{description}</div>
       </div>
       <div className="bg-blue-600 text-white px-10 py-4 rounded">
-        Search Job Now
+        {buttonText}
       </div>
     </>
   );
