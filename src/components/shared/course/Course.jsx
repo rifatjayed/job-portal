@@ -4,41 +4,50 @@
 // function Courses() {
 //   const tabs = ["All", "One day", "Weekly", "Monthly", "Online"];
 //   const [activeTab, setActiveTab] = useState("All");
+
 //   const tabBaseClasses =
 //     "hover:px-4 hover:py-0.5 hover:rounded-4xl cursor-pointer transition-all hover:bg-white hover:text-black";
+
 //   return (
-//     <div className="w-[1170px] flex flex-col items-center gap-12">
-//       <div className="head w-[800px] flex flex-col items-center gap-6">
-//         <div className="title text-[40px] font-bold">
+//     <div className="w-full max-w-[1170px] mx-auto flex flex-col items-center gap-12 px-4 sm:px-0">
+//       {/* Header */}
+//       <div className="head w-full max-w-[800px] flex flex-col items-center gap-6 text-center">
+//         <div className="title text-[32px] sm:text-[40px] font-bold leading-tight">
 //           Courses for your Career
 //         </div>
-//         <div className="text-center">
+//         <div className="text-base leading-relaxed">
 //           Explore our curated selection of career-oriented courses designed to
 //           enhance your professional skills and propel your career forward
 //         </div>
 
-//         <div className="tab px-4 py-3 flex items-center gap-6 bg-blue-600 rounded-4xl text-white ">
-//           {tabs.map((tab, index) => (
-//             <React.Fragment key={tab}>
-//               <div
-//                 onClick={() => setActiveTab(tab)}
-//                 className={`${tabBaseClasses} ${
-//                   activeTab === tab
-//                     ? "bg-white text-black px-4 py-0.5 rounded-4xl"
-//                     : ""
-//                 }`}
-//               >
-//                 {tab}
-//               </div>
-//               {/* Add separator if NOT the last tab */}
-//               {index !== tabs.length - 1 && (
-//                 <span className="text-white select-none">|</span>
-//               )}
-//             </React.Fragment>
-//           ))}
+//         <div className=" overflow-x-auto">
+//           <div className="min-w-max flex gap-2 sm:gap-4 px-4 py-3 bg-blue-600 rounded-4xl text-sm sm:text-base">
+//             {tabs.map((tab, index) => (
+//               <React.Fragment key={tab}>
+//                 <div
+//                   onClick={() => setActiveTab(tab)}
+//                   className={`px-4 py-1 rounded-full cursor-pointer whitespace-nowrap transition-all duration-200 ease-in-out ${
+//                     activeTab === tab
+//                       ? "bg-white text-black"
+//                       : "bg-blue-600 text-white hover:bg-white hover:text-black"
+//                   }`}
+//                 >
+//                   {tab}
+//                 </div>
+
+//                 {index !== tabs.length - 1 && (
+//                   <span className="hidden sm:inline text-white select-none">
+//                     |
+//                   </span>
+//                 )}
+//               </React.Fragment>
+//             ))}
+//           </div>
 //         </div>
 //       </div>
-//       <div className="cards flex flex-wrap justify-between gap-7.5">
+
+//       {/* Cards */}
+//       <div className="cards w-full flex flex-wrap justify-center sm:justify-between gap-6 sm:gap-[30px]">
 //         {Array.from({ length: 6 }).map((_, index) => (
 //           <CourseCard
 //             key={index}
@@ -66,9 +75,6 @@ function Courses() {
   const tabs = ["All", "One day", "Weekly", "Monthly", "Online"];
   const [activeTab, setActiveTab] = useState("All");
 
-  const tabBaseClasses =
-    "hover:px-4 hover:py-0.5 hover:rounded-4xl cursor-pointer transition-all hover:bg-white hover:text-black";
-
   return (
     <div className="w-full max-w-[1170px] mx-auto flex flex-col items-center gap-12 px-4 sm:px-0">
       {/* Header */}
@@ -81,27 +87,21 @@ function Courses() {
           enhance your professional skills and propel your career forward
         </div>
 
-        <div className=" overflow-x-auto">
-          <div className="min-w-max flex gap-2 sm:gap-4 px-4 py-3 bg-blue-600 rounded-4xl text-sm sm:text-base">
-            {tabs.map((tab, index) => (
-              <React.Fragment key={tab}>
-                <div
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-4 py-1 rounded-full cursor-pointer whitespace-nowrap transition-all duration-200 ease-in-out ${
-                    activeTab === tab
-                      ? "bg-white text-black"
-                      : "bg-blue-600 text-white hover:bg-white hover:text-black"
-                  }`}
-                >
-                  {tab}
-                </div>
-
-                {index !== tabs.length - 1 && (
-                  <span className="hidden sm:inline text-white select-none">
-                    |
-                  </span>
-                )}
-              </React.Fragment>
+        {/* Responsive Tab Section */}
+        <div className="w-full overflow-x-auto no-scrollbar flex">
+          <div className="min-w-max flex gap-2 sm:gap-4 px-4 py-3 bg-blue-600 rounded-4xl text-sm sm:text-base mx-auto">
+            {tabs.map((tab) => (
+              <div
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-4 py-1 rounded-full cursor-pointer whitespace-nowrap transition-all duration-200 ease-in-out ${
+                  activeTab === tab
+                    ? "bg-white text-black"
+                    : "bg-blue-600 text-white hover:bg-white hover:text-black"
+                }`}
+              >
+                {tab}
+              </div>
             ))}
           </div>
         </div>
