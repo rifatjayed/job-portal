@@ -149,13 +149,28 @@ function Register() {
           </div>
         </div>
       </Banner> */}
-      <Banner title="Register for an free account as">
+      {/* <Banner title="Register for an free account as">
         <div className="flex gap-10">
           <div className={`px-4 py-1 border rounded ${activeClass}`}>
             Job Seeker
           </div>
           <div className={"px-4 py-1 border rounded ${}"}>Employer</div>
           <div className={"px-4 py-1 border rounded ${}"}>
+            Independent Contractor
+          </div>
+        </div>
+
+
+
+      </Banner> */}
+
+      <Banner title="Register for an free account as">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-10 items-center justify-center">
+          <div className={`px-4 py-1 border rounded ${activeClass}`}>
+            Job Seeker
+          </div>
+          <div className={"px-4 py-1 border rounded"}>Employer</div>
+          <div className={"px-4 py-1 border rounded"}>
             Independent Contractor
           </div>
         </div>
