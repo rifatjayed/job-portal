@@ -928,12 +928,6 @@ export default function JobDetails() {
         <div className="mt-[80px]">
           <h1 className="font-semibold text-[28px] py-[32px]">Similar Jobs</h1>
           <div className="mb-[40px]">
-            {/* {jobs
-              .filter((j) => j.id !== id)
-              .slice(0, 3)
-              .map((item) => (
-                <JobItem key={item.id} job={item} />
-              ))} */}
             {jobs
               .filter((j) => j.id !== id) // দুইটাই string
               .slice(0, 3)
@@ -951,9 +945,9 @@ export default function JobDetails() {
         {/* Modal */}
         <ModalContainer isOpen={open} onClose={() => setOpen(false)}>
           <Modal
-            title="Thanks for your interest!"
+            title=""
             description="We will review your application and contact you if you're shortlisted."
-            buttonText=""
+            buttonText="Thank You"
           />
         </ModalContainer>
       </div>
